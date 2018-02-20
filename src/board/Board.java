@@ -46,7 +46,6 @@ public class Board {
         board[1][3].setStart(true);
         board[1][3].setValue(4);
 
-        board[1][7].setBlack(true);
         board[1][7].setStart(true);
         board[1][7].setValue(5);
 

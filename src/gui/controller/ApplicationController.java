@@ -2,23 +2,28 @@
 package gui.controller;
 
 import board.Board;
+import genetic.Solver;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class ApplicationController {
 
-    Board board;
+    Board startBoard;
 
+    @FXML
+    Button button;
     @FXML
     GridPane gridPane;
 
     @FXML
     public void initialize() {
-        board = new Board();
+        startBoard = new Board();
         //Methode in Board actualizeGrid und fill startGrid
         gridPane.setGridLinesVisible(true);
         gridPane.setMaxSize(450, 450);
@@ -35,14 +40,18 @@ public class ApplicationController {
             labels[i].setAlignment(Pos.CENTER);
             gridPane.add(labels[i], i%9, i / 9);
         }
-        board.fillGridForStartState(gridPane);
+        startBoard.fillGridForStartState(gridPane);
+        button.setFont(new Font("Arial", 12));
     }
 
     @FXML
     public void solveStraits() {
-        board.fillBoardWithRandomNumbers();
-        board.updateGrid(gridPane);
-        //hier Genetischen Algorithmus aufrufen und dann grid mitgeben um Inhalt anzupassen.
+        button.setText("Algorithm is solving...");
+        button.setDisable(true);
+        Solver solver = new Solver(gridPane, button);
+        solver.solve();
+        //hier Genetischen Algorithmus aufrufen und dann grid und button mitgeben um Inhalt anzupassen.
+        //button.setText("Algorithm is solving... - Best Solution after cycle number: "  + cycleIndex);
         //Button verschwinden lassen Label einblenden mit "is solving with genetic algorithm, best solution is shown below:"
         //Am ende Label ersetzen und schreiben "final Solution:"
 

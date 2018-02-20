@@ -6,12 +6,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.HBox?>
 
-<VBox maxHeight="550.0" maxWidth="470.0" minHeight="550.0" minWidth="470.0" prefHeight="550.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ApplicationController">
+<VBox maxHeight="550.0" maxWidth="470.0" minHeight="506.0" minWidth="470.0" prefHeight="514.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ApplicationController">
    <children>
-      <VBox alignment="CENTER" prefHeight="111.0" prefWidth="470.0">
+      <VBox alignment="CENTER" prefHeight="46.0" prefWidth="470.0">
          <children>
-            <Label text="Label" />
-            <Button mnemonicParsing="false" onAction="#solveStraits" text="Button" />
+            <Button fx:id="button" mnemonicParsing="false" onAction="#solveStraits" text="Click to solve!">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+               </VBox.margin></Button>
          </children>
       </VBox>
       <GridPane fx:id="gridPane" alignment="CENTER" gridLinesVisible="true" maxHeight="450.0" maxWidth="450.0" minHeight="450.0" minWidth="450.0" prefHeight="450.0" prefWidth="450.0">
