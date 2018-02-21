@@ -1,9 +1,9 @@
-package board;
+package genetic.board;
 
+import genetic.GeneticConfig;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import tools.MersenneTwisterFast;
@@ -11,7 +11,7 @@ import tools.MersenneTwisterFast;
 public class Board {
 
     private SingeField[][] board = new SingeField[9][9];
-    private final int maxFitness = 81;
+    private final int maxFitness = GeneticConfig.maxFitness;
 
     public Board(){
         for (int i = 0; i < 9; i++){

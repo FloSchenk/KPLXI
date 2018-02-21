@@ -1,4 +1,4 @@
-package board;
+package genetic.board;
 
 public class SingeField {
 
