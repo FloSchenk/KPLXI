@@ -8,11 +8,15 @@ import genetic.selection.Pairing;
 import genetic.selection.Selection;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import tools.MersenneTwisterFast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Solver {
 
+    private MersenneTwisterFast mersenneTwisterFast;
     private GridPane gridPane;
     private Button button;
     private ArrayList<Board> population;
@@ -24,6 +28,7 @@ public class Solver {
     private int bestActualFitnes = 0;
 
     public Solver(GridPane gridPane, Button button){
+        mersenneTwisterFast = new MersenneTwisterFast();
         this.button = button;
         this.gridPane = gridPane;
         population = new ArrayList<>();
@@ -38,25 +43,27 @@ public class Solver {
         initialize(population);
         sortPopulationForFitness(population);
 
-        for (int iteration = 0; iteration < GeneticConfig.maxIterations; iteration++) {
-            if (bestActualFitnes == GeneticConfig.maxFitness) {
+        for (int iteration = 0; iteration < GeneticConfig.MAX_ITERATIONS; iteration++) {
+            if (bestActualFitnes == GeneticConfig.MAX_FITNESS) {
                 population.get(0).updateGrid(gridPane);
                 button.setText("After " + iteration + " iterations the solution was found. Solution is shown below:");
                 break;
             } else {
-                //TODO
-                //1. Selection
-                //2. do Reproduktion
-                //3. SortPopulation
+                selection.doSelection(population);
+                doReproduction(population);
+                sortPopulationForFitness(population);
+                population.get(0).updateGrid(gridPane);
+                break; //TODO delete this break
             }
         }
-        if (bestActualFitnes != GeneticConfig.maxFitness){
-            button.setText("After " + GeneticConfig.maxIterations + " iterations NO solution was found. Best Result shown below: ");
+        if (bestActualFitnes != GeneticConfig.MAX_FITNESS){
+            System.out.println(bestActualFitnes);//TODO delete this
+            button.setText("After " + GeneticConfig.MAX_ITERATIONS + " iterations NO solution was found. Best Result shown below: ");
         }
     }
 
     private void initialize(ArrayList<Board> population){
-        for (int i = 0; i < GeneticConfig.sizeOfPopulation; i++){
+        for (int i = 0; i < GeneticConfig.SIZE_OF_POPULATION; i++){
             Board b = new Board();
             b.fillBoardWithRandomNumbers();
             population.add(b);
@@ -64,30 +71,20 @@ public class Solver {
     }
 
     private void sortPopulationForFitness(ArrayList<Board> population){
-        //sortieren nach Fitness und actual Fitness setzen.
+        Collections.sort(population, new Comparator<Board>() {
+                    @Override
+                    public int compare(Board b1, Board b2) {
+                        return fitnessChecker.getFitness(b2) - fitnessChecker.getFitness(b1);
+                    }
+                });
+        bestActualFitnes = fitnessChecker.getFitness(population.get(0));
     }
 
-    private void doSelection(ArrayList<Board> population){
-        //schwächste töten mit Pest
-    }
 
     private void doReproduction(ArrayList<Board> population){
-        //doPairing(population); Array aus Lsiten mit Size 2 zurückgeben
-        //doCrossover(population); für jeden Array Eintrag do Crossover aufrufen. Kinder zur Ursprünglichen population hinzufügen.
-        // mit bedingter Wahrscheinlichkeit für jeden population Eintrag
-        //doMutation(population);
+        Board[][] pairedPopulation = pairing.doPairing(mersenneTwisterFast, population);
+        crossover.doCrossover(mersenneTwisterFast, population, pairedPopulation);
+        mutation.doMutation(mersenneTwisterFast, population);
     }
 
-    private void doPairing(ArrayList<Board> population){
-        //population paaren. Mit Jedem Paar Do Crossover aufrufen.
-    }
-
-    private void doCrossover(ArrayList<Board> population){
-        //Liste mit 2 Parents übergeben
-        //Liste mit 4 individuen zurückgeben
-    }
-
-    private void doMutation(Board board){
-        // mutieren
-    }
 }

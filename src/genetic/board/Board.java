@@ -10,19 +10,19 @@ import tools.MersenneTwisterFast;
 
 public class Board {
 
-    private SingeField[][] board = new SingeField[9][9];
-    private final int maxFitness = GeneticConfig.maxFitness;
+    private SingleField[][] board = new SingleField[9][9];
+    private final int maxFitness = GeneticConfig.MAX_FITNESS;
 
     public Board(){
         for (int i = 0; i < 9; i++){
             for (int j = 0; j < 9 ; j++){
-                board[i][j] = new SingeField();
+                board[i][j] = new SingleField();
             }
         }
         setStartState(board);
     }
 
-    private void setStartState(SingeField[][] board) {
+    private void setStartState(SingleField[][] board) {
         board[0][0].setBlack(true);
         board[0][0].setStart(true);
 
@@ -135,7 +135,7 @@ public class Board {
         board[8][8].setStart(true);
     }
 
-    public SingeField[][] getBoard() {
+    public SingleField[][] getBoard() {
         return board;
     }
 

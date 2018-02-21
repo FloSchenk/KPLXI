@@ -48,10 +48,5 @@ public class ApplicationController {
         button.setDisable(true);
         Solver solver = new Solver(gridPane, button);
         solver.solve();
-        //hier Genetischen Algorithmus aufrufen und dann grid und button mitgeben um Inhalt anzupassen.
-        //button.setText("Algorithm is solving... - Best Solution after cycle number: "  + cycleIndex);
-        //Button verschwinden lassen Label einblenden mit "is solving with genetic algorithm, best solution is shown below:"
-        //Am ende Label ersetzen und schreiben "final Solution:"
-
     }
 }

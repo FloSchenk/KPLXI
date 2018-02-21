@@ -1,6 +1,6 @@
 package genetic.board;
 
-public class SingeField {
+public class SingleField {
 
     private boolean isStart = false;
     private boolean isBlack = false;
