@@ -2,28 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3fd284d-a8ef-4e6d-bb11-08ea3b1e6e35" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/tests/TestSlave.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/KPLXI.iml" afterPath="$PROJECT_DIR$/KPLXI.iml" />
       <change beforePath="$PROJECT_DIR$/build/genetic/GeneticConfig.class" afterPath="$PROJECT_DIR$/build/genetic/GeneticConfig.class" />
+      <change beforePath="$PROJECT_DIR$/build/genetic/Solver$1.class" afterPath="$PROJECT_DIR$/build/genetic/Solver$1.class" />
       <change beforePath="$PROJECT_DIR$/build/genetic/Solver.class" afterPath="$PROJECT_DIR$/build/genetic/Solver.class" />
-      <change beforePath="$PROJECT_DIR$/build/genetic/board/Board.class" afterPath="$PROJECT_DIR$/build/genetic/board/Board.class" />
-      <change beforePath="$PROJECT_DIR$/build/genetic/board/SingeField.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/genetic/interpretation/FitnessChecker.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/build/genetic/reproduction/Crossover.class" afterPath="$PROJECT_DIR$/build/genetic/reproduction/Crossover.class" />
       <change beforePath="$PROJECT_DIR$/build/genetic/reproduction/Mutation.class" afterPath="$PROJECT_DIR$/build/genetic/reproduction/Mutation.class" />
-      <change beforePath="$PROJECT_DIR$/build/genetic/selection/Pairing.class" afterPath="$PROJECT_DIR$/build/genetic/selection/Pairing.class" />
-      <change beforePath="$PROJECT_DIR$/build/genetic/selection/Selection.class" afterPath="$PROJECT_DIR$/build/genetic/selection/Selection.class" />
-      <change beforePath="$PROJECT_DIR$/build/gui/controller/ApplicationController.class" afterPath="$PROJECT_DIR$/build/gui/controller/ApplicationController.class" />
       <change beforePath="$PROJECT_DIR$/src/genetic/GeneticConfig.java" afterPath="$PROJECT_DIR$/src/genetic/GeneticConfig.java" />
       <change beforePath="$PROJECT_DIR$/src/genetic/Solver.java" afterPath="$PROJECT_DIR$/src/genetic/Solver.java" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/board/Board.java" afterPath="$PROJECT_DIR$/src/genetic/board/Board.java" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/board/SingeField.java" afterPath="$PROJECT_DIR$/src/genetic/board/SingleField.java" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/probation/FitnessChecker.java" afterPath="$PROJECT_DIR$/src/genetic/probation/FitnessChecker.java" />
       <change beforePath="$PROJECT_DIR$/src/genetic/reproduction/Crossover.java" afterPath="$PROJECT_DIR$/src/genetic/reproduction/Crossover.java" />
       <change beforePath="$PROJECT_DIR$/src/genetic/reproduction/Mutation.java" afterPath="$PROJECT_DIR$/src/genetic/reproduction/Mutation.java" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/selection/Pairing.java" afterPath="$PROJECT_DIR$/src/genetic/selection/Pairing.java" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/selection/Selection.java" afterPath="$PROJECT_DIR$/src/genetic/selection/Selection.java" />
       <change beforePath="$PROJECT_DIR$/src/gui/controller/ApplicationController.java" afterPath="$PROJECT_DIR$/src/gui/controller/ApplicationController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Solver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Solver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/genetic/Solver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="67" column="43" lean-forward="true" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
+            <state relative-caret-position="153">
+              <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,26 +36,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Crossover.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/genetic/reproduction/Crossover.java">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/genetic/board/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="225">
+              <caret line="138" column="21" lean-forward="true" selection-start-line="138" selection-start-column="21" selection-end-line="138" selection-end-column="21" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#setStartState#0;class#Board#0" expanded="false" />
+                <element signature="e#3435#3436#0" expanded="true" />
+                <element signature="e#3463#3464#0" expanded="true" />
+                <element signature="method#fillBoardWithRandomNumbers#0;class#Board#0" expanded="false" />
+                <element signature="method#fillGridForStartState#0;class#Board#0" expanded="false" />
+                <element signature="method#getNodeByRowColumnIndex#0;class#Board#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mutation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/genetic/reproduction/Mutation.java">
+      <file leaf-file-name="ApplicationController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/controller/ApplicationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="10" column="97" lean-forward="false" selection-start-line="10" selection-start-column="97" selection-end-line="10" selection-end-column="97" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="480">
+              <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeneticConfig.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GeneticConfig.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/genetic/GeneticConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -130,16 +121,16 @@
         <option value="$PROJECT_DIR$/src/genetic/interpretation/FitnessChecker.java" />
         <option value="$PROJECT_DIR$/src/genetic/board/asd.java" />
         <option value="$PROJECT_DIR$/src/genetic/selection/Pest.java" />
-        <option value="$PROJECT_DIR$/src/gui/controller/ApplicationController.java" />
         <option value="$PROJECT_DIR$/src/genetic/board/Board.java" />
         <option value="$PROJECT_DIR$/src/genetic/probation/FitnessChecker.java" />
         <option value="$PROJECT_DIR$/src/tests/TestSlave.java" />
         <option value="$PROJECT_DIR$/src/genetic/selection/Selection.java" />
         <option value="$PROJECT_DIR$/src/genetic/selection/Pairing.java" />
+        <option value="$PROJECT_DIR$/src/genetic/reproduction/Mutation.java" />
         <option value="$PROJECT_DIR$/src/genetic/reproduction/Crossover.java" />
         <option value="$PROJECT_DIR$/src/genetic/Solver.java" />
+        <option value="$PROJECT_DIR$/src/gui/controller/ApplicationController.java" />
         <option value="$PROJECT_DIR$/src/genetic/GeneticConfig.java" />
-        <option value="$PROJECT_DIR$/src/genetic/reproduction/Mutation.java" />
       </list>
     </option>
   </component>
@@ -170,6 +161,7 @@
     <panes>
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -206,6 +198,19 @@
               <item name="KPLXI" type="b2602c69:ProjectViewProjectNode" />
               <item name="KPLXI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KPLXI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KPLXI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KPLXI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KPLXI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -213,7 +218,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -473,18 +477,18 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.241342" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.241342" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14552239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13219616" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -502,7 +506,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="15" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -526,7 +530,7 @@
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -536,7 +540,7 @@
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -634,19 +638,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/controller/ApplicationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -655,7 +650,7 @@
         <state relative-caret-position="289">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -665,7 +660,7 @@
         <state relative-caret-position="153">
           <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -684,35 +679,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/genetic/board/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/genetic/GeneticConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/genetic/reproduction/Mutation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="97" lean-forward="false" selection-start-line="10" selection-start-column="97" selection-end-line="10" selection-end-column="97" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/genetic/reproduction/Crossover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="17" column="69" lean-forward="true" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -727,13 +697,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/genetic/Solver.java">
+    <entry file="file://$PROJECT_DIR$/src/genetic/reproduction/Crossover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="67" column="43" lean-forward="true" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
+        <state relative-caret-position="259">
+          <caret line="26" column="33" lean-forward="true" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genetic/board/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="138" column="21" lean-forward="true" selection-start-line="138" selection-start-column="21" selection-end-line="138" selection-end-column="21" />
+          <folding>
+            <element signature="method#setStartState#0;class#Board#0" expanded="false" />
+            <element signature="e#3435#3436#0" expanded="true" />
+            <element signature="e#3463#3464#0" expanded="true" />
+            <element signature="method#fillBoardWithRandomNumbers#0;class#Board#0" expanded="false" />
+            <element signature="method#fillGridForStartState#0;class#Board#0" expanded="false" />
+            <element signature="method#getNodeByRowColumnIndex#0;class#Board#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genetic/Solver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/ApplicationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genetic/GeneticConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -49,4 +49,5 @@ public class ApplicationController {
         Solver solver = new Solver(gridPane, button);
         solver.solve();
     }
+
 }

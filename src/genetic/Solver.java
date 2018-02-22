@@ -52,11 +52,12 @@ public class Solver {
                 selection.doSelection(population);
                 doReproduction(population);
                 sortPopulationForFitness(population);
-                population.get(0).updateGrid(gridPane);
-                break; //TODO delete this break
+                //if (iteration % 1000 == 0)
+                  //  population.get(0).updateGrid(gridPane); // TODO fix this. To Update the Gridpane
             }
         }
         if (bestActualFitnes != GeneticConfig.MAX_FITNESS){
+            population.get(0).updateGrid(gridPane);
             System.out.println(bestActualFitnes);//TODO delete this
             button.setText("After " + GeneticConfig.MAX_ITERATIONS + " iterations NO solution was found. Best Result shown below: ");
         }
