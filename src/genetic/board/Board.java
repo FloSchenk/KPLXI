@@ -1,16 +1,10 @@
 package genetic.board;
 
-import genetic.GeneticConfig;
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import tools.MersenneTwisterFast;
 
 public class Board {
 
     private SingleField[][] board = new SingleField[9][9];
-    private final int maxFitness = GeneticConfig.MAX_FITNESS;
 
     public Board(){
         for (int i = 0; i < 9; i++){
@@ -149,32 +143,5 @@ public class Board {
             }
         }
     }
-
-    public void updateGrid(GridPane gridPane){
-        for (int i = 0; i < 9; i++){
-            for (int j = 0; j < 9 ; j++){
-                if (!board[i][j].isStart()){
-                    Label label = (Label) getNodeByRowColumnIndex(i,j,gridPane);
-                    label.setText(Integer.toString(board[i][j].getValue()));
-                }
-            }
-        }
-    }
-
-    public Node getNodeByRowColumnIndex (final int row, final int column, GridPane gridPane) {
-        Node result = null;
-        ObservableList<Node> childrens = gridPane.getChildren();
-
-        for (Node node : childrens) {
-            if (node instanceof Label){
-                if(gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column) {
-                    result = node;
-                    break;
-                }
-            }
-        }
-        return result;
-    }
-
 
 }

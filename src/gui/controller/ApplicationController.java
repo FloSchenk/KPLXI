@@ -1,12 +1,12 @@
 
 package gui.controller;
 
-import backtracking.BacktrackingSolver;
-import genetic.GeneticConfig;
 import genetic.Solver;
 import genetic.board.Board;
-import gui.StraitsConfig;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -19,13 +19,13 @@ import javafx.scene.text.Font;
 public class ApplicationController {
 
     private Board startBoard;
-    private int iterations = 0;
-    private Boolean isSolutionFound = false;
 
     @FXML
     Button button;
     @FXML
     GridPane gridPane;
+    @FXML
+    Label label;
 
     @FXML
     public void initialize() {
@@ -48,30 +48,29 @@ public class ApplicationController {
         }
         fillGridForStartState(startBoard);
         button.setFont(new Font("Arial", 12));
+        button.setOnAction(event -> solveStraits());
+        label.setText("Status will be shown here.");
     }
 
     @FXML
     public void solveStraits() {
-        button.setText("Algorithm is solving...");
         button.setDisable(true);
-        if (StraitsConfig.TYPE_OF_SOLVER.equals("genetic")) {
-            Thread solver = new Thread(new Solver(this));
-            solver.start();
-        } else if(StraitsConfig.TYPE_OF_SOLVER.equals("backtracking")){
-            Thread solver = new Thread(new BacktrackingSolver(this));
-            solver.start();
-        }
+            Task<Board> task= new Solver();
 
+            label.textProperty().bind(task.messageProperty());
+            task.valueProperty().addListener(new ChangeListener<Board>() {
+                @Override
+                public void changed(ObservableValue<? extends Board> observable, Board oldValue, Board newValue) {
+                    if (newValue != null){
+                        updateGrid(gridPane, newValue);
+                    }
+                }
+            });
 
-        // TODO wie regelmäßig aktualisieren?
-        //while (!isSolutionFound) {
-            try {
-                Thread.sleep(500);
-                updateGrid(startBoard, iterations, isSolutionFound);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        //}
+            Thread solver = new Thread(task);
+            solver.setDaemon(true);
+            solver.start();
+
     }
 
     private void fillGridForStartState(Board board){
@@ -96,22 +95,13 @@ public class ApplicationController {
         }
     }
 
-    private void updateGrid(Board board, int iterations, boolean isSolutionFound){
+    public void updateGrid(GridPane gridPane, Board board){
         for (int i = 0; i < 9; i++){
             for (int j = 0; j < 9 ; j++){
                 if (!board.getBoard()[i][j].isStart()){
                     Label label = (Label) getNodeByRowColumnIndex(i,j,gridPane);
                     label.setText(Integer.toString(board.getBoard()[i][j].getValue()));
                 }
-            }
-        }
-        if (iterations == GeneticConfig.MAX_ITERATIONS) {
-            button.setText("After " + GeneticConfig.MAX_ITERATIONS + " iterations NO solution was found. Best Result shown below: ");
-        }else {
-            if(isSolutionFound){
-                button.setText("After " + iterations + " iterations the solution was found. Solution is shown below:");
-            } else {
-                button.setText("Still searching for Solution. After " + iterations + " iterations actual best solution is shown below:");
             }
         }
     }
@@ -131,9 +121,4 @@ public class ApplicationController {
         return result;
     }
 
-    public void setStatsForActualize(Board board, int iterations, boolean isSolutionFound){
-       this.startBoard = board;
-       this.iterations = iterations;
-       this.isSolutionFound = isSolutionFound;
-    }
 }

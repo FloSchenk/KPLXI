@@ -1,5 +1,6 @@
 package genetic;
 
+import com.sun.javafx.tk.Toolkit;
 import genetic.board.Board;
 import genetic.probation.FitnessChecker;
 import genetic.reproduction.Crossover;
@@ -8,17 +9,16 @@ import genetic.reproduction.OrderedCrossover;
 import genetic.reproduction.Mutation;
 import genetic.selection.Pairing;
 import genetic.selection.Selection;
-import gui.controller.ApplicationController;
+import javafx.concurrent.Task;
 import tools.MersenneTwisterFast;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Solver implements Runnable{
+public class Solver extends Task<Board> {
 
     private MersenneTwisterFast mersenneTwisterFast;
-    private ApplicationController applicationController;
     private ArrayList<Board> population;
     private FitnessChecker fitnessChecker;
     private Selection selection;
@@ -27,9 +27,8 @@ public class Solver implements Runnable{
     private Mutation mutation;
     private int bestActualFitnes = 0;
 
-    public Solver(ApplicationController applicationController){
+    public Solver(){
         mersenneTwisterFast = new MersenneTwisterFast();
-        this.applicationController = applicationController;
         population = new ArrayList<>();
         fitnessChecker = new FitnessChecker();
         selection = new Selection();
@@ -44,28 +43,38 @@ public class Solver implements Runnable{
         mutation = new Mutation();
     }
 
+    @Override
+    protected Board call() throws Exception {
+        solve();
+        return population.get(0);
+    }
+
+
     public void solve(){
         initialize(population);
         sortPopulationForFitness(population);
 
         for (int iteration = 0; iteration < genetic.GeneticConfig.MAX_ITERATIONS; iteration++) {
             if (bestActualFitnes == genetic.GeneticConfig.MAX_FITNESS) {
-                applicationController.setStatsForActualize(population.get(0), iteration, true);
+                updateMessage("After " + iteration + " iterations the solution was found. Solution is shown below:");
+                updateValue(population.get(0));
                 break;
             } else {
                 selection.doSelection(population);
                 doReproduction(population);
                 sortPopulationForFitness(population);
-                if (iteration % 100 == 0)
-                    applicationController.setStatsForActualize(population.get(0), iteration,false);
+                if (iteration % 100 == 0);
+                updateMessage("Still searching for Solution. After " + iteration + " iterations actual best solution is shown below:");
+                updateValue(population.get(0));
             }
-            System.out.println("Actual Cyclus: " + iteration + " - Actual Fitness: " + bestActualFitnes);
+            System.out.println("Actual Cycle: " + iteration + " - Actual Fitness: " + bestActualFitnes);//TODO delete this logging
         }
         if (bestActualFitnes != genetic.GeneticConfig.MAX_FITNESS){
-            applicationController.setStatsForActualize(population.get(0), genetic.GeneticConfig.MAX_ITERATIONS, false);
-            System.out.println(bestActualFitnes);//TODO delete this
+            updateMessage("After " + GeneticConfig.MAX_ITERATIONS + " iterations NO solution was found. Best Result shown below: ");
+            updateValue(population.get(0));
         }
     }
+
 
     private void initialize(ArrayList<Board> population){
         for (int i = 0; i < genetic.GeneticConfig.SIZE_OF_POPULATION; i++){
@@ -89,10 +98,5 @@ public class Solver implements Runnable{
         Board[][] pairedPopulation = pairing.doPairing(mersenneTwisterFast, population);
         crossover.doCrossover(mersenneTwisterFast, population, pairedPopulation);
         mutation.doMutation(mersenneTwisterFast, population);
-    }
-
-    @Override
-    public void run() {
-        solve();
     }
 }

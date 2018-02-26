@@ -10,10 +10,11 @@
    <children>
       <VBox alignment="CENTER" prefHeight="46.0" prefWidth="470.0">
          <children>
-            <Button fx:id="button" mnemonicParsing="false" onAction="#solveStraits" text="Click to solve!">
+            <Button fx:id="button" mnemonicParsing="false" text="Click to solve!">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                </VBox.margin></Button>
+            <Label fx:id="label" text="Label" />
          </children>
       </VBox>
       <GridPane fx:id="gridPane" alignment="CENTER" gridLinesVisible="true" maxHeight="450.0" maxWidth="450.0" minHeight="450.0" minWidth="450.0" prefHeight="450.0" prefWidth="450.0">
