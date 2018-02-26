@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 import tools.MersenneTwisterFast;
 
 public class Board {
@@ -146,28 +145,6 @@ public class Board {
             for (int j = 0; j < 9 ; j++){
                 if (!board[i][j].isStart()){
                     board[i][j].setValue(randomGenerator.nextInt(1,9));
-                }
-            }
-        }
-    }
-
-    public void fillGridForStartState(GridPane gridPane){
-
-        for (int i = 0; i < 9; i++){
-            for (int j = 0; j < 9 ; j++){
-
-                if (board[i][j].isStart()){
-                    if(board[i][j].isBlack()){
-                        Label label = (Label) getNodeByRowColumnIndex(i,j,gridPane);
-                        label.setStyle("-fx-background-color: Black");
-                        if (board[i][j].getValue() != -5){
-                            label.setTextFill(Color.WHITE);
-                            label.setText(Integer.toString(board[i][j].getValue()));
-                        }
-                    } else {
-                        Label label = (Label) getNodeByRowColumnIndex(i,j,gridPane);
-                        label.setText(Integer.toString(board[i][j].getValue()));
-                    }
                 }
             }
         }

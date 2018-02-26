@@ -3,22 +3,22 @@ package genetic;
 import genetic.board.Board;
 import genetic.probation.FitnessChecker;
 import genetic.reproduction.Crossover;
+import genetic.reproduction.ModuloCrossover;
+import genetic.reproduction.OrderedCrossover;
 import genetic.reproduction.Mutation;
 import genetic.selection.Pairing;
 import genetic.selection.Selection;
-import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
+import gui.controller.ApplicationController;
 import tools.MersenneTwisterFast;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Solver {
+public class Solver implements Runnable{
 
     private MersenneTwisterFast mersenneTwisterFast;
-    private GridPane gridPane;
-    private Button button;
+    private ApplicationController applicationController;
     private ArrayList<Board> population;
     private FitnessChecker fitnessChecker;
     private Selection selection;
@@ -27,15 +27,20 @@ public class Solver {
     private Mutation mutation;
     private int bestActualFitnes = 0;
 
-    public Solver(GridPane gridPane, Button button){
+    public Solver(ApplicationController applicationController){
         mersenneTwisterFast = new MersenneTwisterFast();
-        this.button = button;
-        this.gridPane = gridPane;
+        this.applicationController = applicationController;
         population = new ArrayList<>();
         fitnessChecker = new FitnessChecker();
         selection = new Selection();
         pairing = new Pairing();
-        crossover = new Crossover();
+        if (genetic.GeneticConfig.TYPE_OF_CROSSOVER.equals("ordered")){
+            System.out.println("Type of Crossover: " + genetic.GeneticConfig.TYPE_OF_CROSSOVER);
+            crossover = new OrderedCrossover();
+        } else if (genetic.GeneticConfig.TYPE_OF_CROSSOVER.equals("modulo")){
+            System.out.println("Type of Crossover: " + genetic.GeneticConfig.TYPE_OF_CROSSOVER);
+            crossover = new ModuloCrossover();
+        }
         mutation = new Mutation();
     }
 
@@ -43,28 +48,27 @@ public class Solver {
         initialize(population);
         sortPopulationForFitness(population);
 
-        for (int iteration = 0; iteration < GeneticConfig.MAX_ITERATIONS; iteration++) {
-            if (bestActualFitnes == GeneticConfig.MAX_FITNESS) {
-                population.get(0).updateGrid(gridPane);
-                button.setText("After " + iteration + " iterations the solution was found. Solution is shown below:");
+        for (int iteration = 0; iteration < genetic.GeneticConfig.MAX_ITERATIONS; iteration++) {
+            if (bestActualFitnes == genetic.GeneticConfig.MAX_FITNESS) {
+                applicationController.setStatsForActualize(population.get(0), iteration, true);
                 break;
             } else {
                 selection.doSelection(population);
                 doReproduction(population);
                 sortPopulationForFitness(population);
-                //if (iteration % 1000 == 0)
-                  //  population.get(0).updateGrid(gridPane); // TODO fix this. To Update the Gridpane
+                if (iteration % 100 == 0)
+                    applicationController.setStatsForActualize(population.get(0), iteration,false);
             }
+            System.out.println("Actual Cyclus: " + iteration + " - Actual Fitness: " + bestActualFitnes);
         }
-        if (bestActualFitnes != GeneticConfig.MAX_FITNESS){
-            population.get(0).updateGrid(gridPane);
+        if (bestActualFitnes != genetic.GeneticConfig.MAX_FITNESS){
+            applicationController.setStatsForActualize(population.get(0), genetic.GeneticConfig.MAX_ITERATIONS, false);
             System.out.println(bestActualFitnes);//TODO delete this
-            button.setText("After " + GeneticConfig.MAX_ITERATIONS + " iterations NO solution was found. Best Result shown below: ");
         }
     }
 
     private void initialize(ArrayList<Board> population){
-        for (int i = 0; i < GeneticConfig.SIZE_OF_POPULATION; i++){
+        for (int i = 0; i < genetic.GeneticConfig.SIZE_OF_POPULATION; i++){
             Board b = new Board();
             b.fillBoardWithRandomNumbers();
             population.add(b);
@@ -81,11 +85,14 @@ public class Solver {
         bestActualFitnes = fitnessChecker.getFitness(population.get(0));
     }
 
-
     private void doReproduction(ArrayList<Board> population){
         Board[][] pairedPopulation = pairing.doPairing(mersenneTwisterFast, population);
         crossover.doCrossover(mersenneTwisterFast, population, pairedPopulation);
         mutation.doMutation(mersenneTwisterFast, population);
     }
 
+    @Override
+    public void run() {
+        solve();
+    }
 }
