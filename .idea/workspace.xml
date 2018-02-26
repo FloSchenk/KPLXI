@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3fd284d-a8ef-4e6d-bb11-08ea3b1e6e35" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/backtracking/BacktrackingSolver.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/genetic/reproduction/ModuloCrossover.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/genetic/reproduction/OrderedCrossover.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/gui/StraitsConfig.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/genetic/GeneticConfig.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/build/genetic/GeneticConfig.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/genetic/Solver$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/genetic/Solver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/genetic/board/Board.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/genetic/reproduction/Crossover.class" afterPath="$PROJECT_DIR$/build/genetic/reproduction/Crossover.class" />
-      <change beforePath="$PROJECT_DIR$/build/genetic/reproduction/Mutation.class" afterPath="$PROJECT_DIR$/build/genetic/reproduction/Mutation.class" />
-      <change beforePath="$PROJECT_DIR$/build/genetic/selection/Selection.class" afterPath="$PROJECT_DIR$/build/genetic/selection/Selection.class" />
-      <change beforePath="$PROJECT_DIR$/build/gui/controller/ApplicationController.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/GeneticConfig.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/Solver.java" afterPath="$PROJECT_DIR$/src/genetic/Solver.java" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/board/Board.java" afterPath="$PROJECT_DIR$/src/genetic/board/Board.java" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/reproduction/Crossover.java" afterPath="$PROJECT_DIR$/src/genetic/reproduction/Crossover.java" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/reproduction/Mutation.java" afterPath="$PROJECT_DIR$/src/genetic/reproduction/Mutation.java" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/selection/Selection.java" afterPath="$PROJECT_DIR$/src/genetic/selection/Selection.java" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/ApplicationController.java" afterPath="$PROJECT_DIR$/src/gui/controller/ApplicationController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -258,6 +240,20 @@
               <item name="KPLXI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="genetic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KPLXI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KPLXI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="genetic" type="462c0819:PsiDirectoryNode" />
+              <item name="board" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KPLXI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KPLXI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="genetic" type="462c0819:PsiDirectoryNode" />
+              <item name="probation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KPLXI" type="b2602c69:ProjectViewProjectNode" />
@@ -526,7 +522,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -540,7 +535,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13646056" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13646056" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -773,14 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/StraitsConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/genetic/Solver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -817,6 +804,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-969">
           <caret line="10" column="35" lean-forward="true" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/StraitsConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
