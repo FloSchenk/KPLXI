@@ -10,7 +10,7 @@ public class Mutation {
 
     public void doMutation(MersenneTwisterFast mersenneTwisterFast, ArrayList<Board> population){
         for (Board board: population) {
-            if (mersenneTwisterFast.nextInt(1, 100) <= GeneticConfig.PROBABILITY_OF_MUTATION_IN_PERCENT){
+            if (mersenneTwisterFast.nextInt(1, 1000) <= GeneticConfig.PROBABILITY_OF_MUTATION_IN_THOUSANDTH){
                 int numberOfMutations = GeneticConfig.NUMBER_OF_MUTATIONS;
                     for (int i = 0; i < numberOfMutations; i++){
                         int row = mersenneTwisterFast.nextInt(0,8);

@@ -13,6 +13,8 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class TestSlave {
@@ -67,6 +69,17 @@ public class TestSlave {
     @Test
     public void testFitnessChecker(){
         Assert.assertNotNull(fitnessChecker);
+        SingleField singleField1 = new SingleField();
+        SingleField singleField2 = new SingleField();
+        SingleField singleField3 = new SingleField();
+        singleField1.setValue(1);
+        singleField2.setValue(3);
+        singleField3.setValue(2);
+        ArrayList<SingleField> arrayList = new ArrayList<>();
+        arrayList.add(singleField1);
+        arrayList.add(singleField2);
+        arrayList.add(singleField3);
+        assertEquals(false,fitnessChecker.checkForStraitError(arrayList));
     }
 
     @Test
