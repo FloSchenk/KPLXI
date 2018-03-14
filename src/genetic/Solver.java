@@ -1,6 +1,5 @@
 package genetic;
 
-import com.sun.javafx.tk.Toolkit;
 import genetic.board.Board;
 import genetic.probation.FitnessChecker;
 import genetic.reproduction.Crossover;
@@ -63,11 +62,9 @@ public class Solver extends Task<Board> {
                 selection.doSelection(population);
                 doReproduction(population);
                 sortPopulationForFitness(population);
-                if (iteration % 100 == 0);
-                updateMessage("Still searching for Solution. After " + iteration + " iterations actual best solution is shown below:");
+                updateMessage("Still searching. After " + iteration + " iterations actual best solution, Fitness: " + bestActualFitnes + " of "+ GeneticConfig.MAX_FITNESS +", is:");
                 updateValue(population.get(0));
             }
-            System.out.println("Actual Cycle: " + iteration + " - Actual Fitness: " + bestActualFitnes);//TODO delete this logging
         }
         if (bestActualFitnes != genetic.GeneticConfig.MAX_FITNESS){
             updateMessage("After " + GeneticConfig.MAX_ITERATIONS + " iterations NO solution was found. Best Result shown below: ");

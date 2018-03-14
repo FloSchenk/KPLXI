@@ -30,7 +30,6 @@ public class ApplicationController {
     @FXML
     public void initialize() {
         startBoard = new Board();
-        //Methode in Board actualizeGrid und fill startGrid
         gridPane.setGridLinesVisible(true);
         gridPane.setMaxSize(450, 450);
         gridPane.setMinSize(450, 450);

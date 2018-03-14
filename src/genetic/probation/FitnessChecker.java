@@ -10,16 +10,16 @@ import java.util.Comparator;
 
 public class FitnessChecker {
 
+    //Nach Mail vom 04.03.2018 der aktuelle und korrekt implementierte Algorithmus.
+
     public int getFitness(Board b){
         SingleField [][] board = b.getBoard();
         int actualFitness = GeneticConfig.MAX_FITNESS;
 
-        //Check for Error zu INT ändern und dann actualFitness - checkForErros. Max Fitnes auf 92. Kein Fehler Check = 0, nur StraßenFehler -1, Straßen und Duplikatfehler -2 /TODO evtl!
         for (int i = 0; i < 9; i++){
             for (int j = 0; j < 9 ; j++){
                 if (!board[i][j].isStart()){
-                    if (checkForError(board, i, j))
-                        actualFitness--;
+                        actualFitness = actualFitness - checkForError(board, i, j);
                 }
             }
         }
@@ -28,88 +28,6 @@ public class FitnessChecker {
         return actualFitness;
     }
 
-    //TODO check if still need
-    private ArrayList<SingleField> getNeighbours(SingleField [][] board, int rowIndex, int columnIndex){
-        ArrayList<SingleField> neighbours = new ArrayList<>();
-
-        if (rowIndex != 0 && rowIndex != 8){
-            if (columnIndex != 0 && columnIndex != 8){
-                if (!board[rowIndex + 1][columnIndex].isBlack())
-                    neighbours.add(board[rowIndex + 1][columnIndex]);
-                if (!board[rowIndex - 1][columnIndex].isBlack())
-                    neighbours.add(board[rowIndex - 1][columnIndex]);
-                if (!board[rowIndex][columnIndex + 1].isBlack())
-                    neighbours.add(board[rowIndex][columnIndex + 1]);
-                if (!board[rowIndex][columnIndex - 1].isBlack())
-                    neighbours.add(board[rowIndex][columnIndex - 1]);
-                return neighbours;
-            } else if (columnIndex == 0){
-                if (!board[rowIndex + 1][columnIndex].isBlack())
-                    neighbours.add(board[rowIndex + 1][columnIndex]);
-                if (!board[rowIndex - 1][columnIndex].isBlack())
-                    neighbours.add(board[rowIndex - 1][columnIndex]);
-                if (!board[rowIndex][columnIndex + 1].isBlack())
-                    neighbours.add(board[rowIndex][columnIndex + 1]);
-                return neighbours;
-            } else if (columnIndex == 8){
-                if (!board[rowIndex + 1][columnIndex].isBlack())
-                    neighbours.add(board[rowIndex + 1][columnIndex]);
-                if (!board[rowIndex - 1][columnIndex].isBlack())
-                    neighbours.add(board[rowIndex - 1][columnIndex]);
-                if (!board[rowIndex][columnIndex - 1].isBlack())
-                    neighbours.add(board[rowIndex][columnIndex - 1]);
-                return neighbours;
-            }
-        } else if (rowIndex == 0){
-            if (columnIndex != 0 && columnIndex != 8){
-                if (!board[rowIndex + 1][columnIndex].isBlack())
-                    neighbours.add(board[rowIndex + 1][columnIndex]);
-                if (!board[rowIndex][columnIndex + 1].isBlack())
-                    neighbours.add(board[rowIndex][columnIndex + 1]);
-                if (!board[rowIndex][columnIndex - 1].isBlack())
-                    neighbours.add(board[rowIndex][columnIndex - 1]);
-                return neighbours;
-            } else if (columnIndex == 0){
-                if (!board[rowIndex + 1][columnIndex].isBlack())
-                    neighbours.add(board[rowIndex + 1][columnIndex]);
-                if (!board[rowIndex][columnIndex + 1].isBlack())
-                    neighbours.add(board[rowIndex][columnIndex + 1]);
-                return neighbours;
-            } else if (columnIndex == 8){
-                if (!board[rowIndex + 1][columnIndex].isBlack())
-                    neighbours.add(board[rowIndex + 1][columnIndex]);
-                if (!board[rowIndex][columnIndex - 1].isBlack())
-                    neighbours.add(board[rowIndex][columnIndex - 1]);
-                return neighbours;
-            }
-        } else if (rowIndex == 8){
-            if (columnIndex != 0 && columnIndex != 8){
-                if (!board[rowIndex - 1][columnIndex].isBlack())
-                    neighbours.add(board[rowIndex - 1][columnIndex]);
-                if (!board[rowIndex][columnIndex + 1].isBlack())
-                    neighbours.add(board[rowIndex][columnIndex + 1]);
-                if (!board[rowIndex][columnIndex - 1].isBlack())
-                    neighbours.add(board[rowIndex][columnIndex - 1]);
-                return neighbours;
-            } else if (columnIndex == 0){
-                if (!board[rowIndex - 1][columnIndex].isBlack())
-                    neighbours.add(board[rowIndex - 1][columnIndex]);
-                if (!board[rowIndex][columnIndex + 1].isBlack())
-                    neighbours.add(board[rowIndex][columnIndex + 1]);
-                return neighbours;
-            } else if (columnIndex == 8){
-                if (!board[rowIndex - 1][columnIndex].isBlack())
-                    neighbours.add(board[rowIndex - 1][columnIndex]);
-                if (!board[rowIndex][columnIndex - 1].isBlack())
-                    neighbours.add(board[rowIndex][columnIndex - 1]);
-                return neighbours;
-            }
-        }
-
-        return neighbours;
-    }
-
-    //TODO
     private ArrayList<SingleField> getRowCompartment(SingleField [][] board, int rowIndex, int columnIndex){
 
         ArrayList<SingleField> rowCompartment = new ArrayList<>();
@@ -143,7 +61,6 @@ public class FitnessChecker {
         return rowCompartment;
     }
 
-    //TODO
     private ArrayList<SingleField> getColumnCompartment(SingleField [][] board, int rowIndex, int columnIndex){
 
         ArrayList<SingleField> columnCompartment = new ArrayList<>();
@@ -218,38 +135,30 @@ public class FitnessChecker {
         return rowAndColumnEntries;
     }
 
-    private boolean checkForError(SingleField [][] board, int rowIndex, int columnIndex){
+    private int checkForError(SingleField [][] board, int rowIndex, int columnIndex){
+
+        int numberOfErrors = 0;
 
         //check if no number is two times in row or column
-        ArrayList<SingleField> rowAndColumnEntries = getRowAndColumnEntries(board,rowIndex,columnIndex);
+       ArrayList<SingleField> rowAndColumnEntries = getRowAndColumnEntries(board,rowIndex,columnIndex);
         for (SingleField s: rowAndColumnEntries) {
-            if (s.getValue() == board[rowIndex][columnIndex].getValue())
-                return true;
+            if (s.getValue() == board[rowIndex][columnIndex].getValue()) {
+                numberOfErrors++;
+                break;
+            }
         }
 
-        /*//check if there is at least one Neighgbour which is entry -1 or entry +1 //TODO check if still need
-        ArrayList<SingleField> neighbours = getNeighbours(board,rowIndex,columnIndex);
-        int counterForStr8tNeighbours = 0;
-        int valueOfField = board[rowIndex][columnIndex].getValue();
-        for (SingleField s: neighbours) {
-            if (valueOfField + 1 == s.getValue() || valueOfField - 1 == s.getValue())
-                counterForStr8tNeighbours++;
-
-        }
-        if (counterForStr8tNeighbours == 0){
-            return true;
-        }*/
-
+        //check for Straits
         ArrayList<SingleField> rowCompartment = getRowCompartment(board, rowIndex, columnIndex);
         if (checkForStraitError(rowCompartment)){
-            return true;
+            numberOfErrors++;
         }
 
         ArrayList<SingleField> columnCompartment = getColumnCompartment(board, rowIndex, columnIndex);
         if (checkForStraitError(columnCompartment)){
-            return true;
+            numberOfErrors++;
         }
 
-        return false;
+        return numberOfErrors;
     }
 }

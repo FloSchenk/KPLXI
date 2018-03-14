@@ -9,7 +9,7 @@ public class Application extends javafx.application.Application {
 
     private String[] arguments;
     private Stage primaryStage;
-    private VBox root; //change to the base node
+    private VBox root;
 
     @Override
     public void start(Stage primaryStage) {
