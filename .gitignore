@@ -1,0 +1,12 @@
+# output
+/bin/
+/out/
+/build/
+
+# intellij
+/.idea/
+KPLXI.iml
+
+# eclipse
+.classpath
+.project
